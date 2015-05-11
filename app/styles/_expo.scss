@@ -1,5 +1,5 @@
 .expo-section {
-  background-image: asset_url('backgrounds/expo.jpg');
+  background-image: url('../assets/images/backgrounds/expo.jpg');
   background-size: cover;
 
   .content-wrapper {
@@ -14,7 +14,7 @@
     padding: 60px 87px;
     margin: 0;
 
-    background-image: asset_url('expo/expo-title-bg.png');
+    background-image: url('../assets/images/expo/expo-title-bg.png');
     font-size: 3.5em;
     color: white;
     font-family: $lato;
@@ -26,7 +26,7 @@
     padding: 20px 20px 20px 100px;
     width: 660px;
     height: 178px;
-    background-image: asset_url('expo/expo-description-bg.png');
+    background-image: url('../assets/images/expo/expo-description-bg.png');
 
     font-size: 1em;
     font-family: $lato;

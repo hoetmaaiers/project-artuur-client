@@ -6,4 +6,9 @@ var Router = Ember.Router.extend({
 });
 
 export default Router.map(function() {
+  this.route('welcome', { path: '/' });
+  this.resource('workshops');
+  this.route('bar');
+  this.route('expo');
+  this.route('workspace');
 });

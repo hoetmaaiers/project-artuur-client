@@ -1,0 +1,152 @@
+.start-section {
+  width: 100%;
+  min-height: 100vh;
+
+
+  .content {
+    @include outer-container();
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 480px;
+      height: 411px;
+      top: 80px;
+      left: -50px;
+      pointer-events: none;
+
+      background-image: asset-url('home-bg.png');
+      background-repeat: no-repeat;
+    }
+  }
+
+  .logo {
+    position: relative;
+    margin-top: 70px;
+    @include shift(2);
+  }
+
+  .quick-nav {
+    @include shift(2);
+    margin-top: 140px;
+    padding-right: 40px;
+
+    color: rgba(0, 0, 0, 0.7);
+    font-family: $kingthings-trypewriter;
+    font-size: 1.3em;
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      @include clearfix;
+      @include transition(color 300ms);
+      position: relative;
+      padding: 0;
+      margin-bottom: 12px;
+      width: 100%;
+
+      &:hover {
+        color: black;
+      }
+
+      a {
+        @include clearfix;
+        color: inherit;
+        float: left;
+        width: 100%;
+      }
+
+      &:before {
+        position: absolute;
+        overflow: hidden;
+        content: '..................................................................................................................................';
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+    }
+
+    .label,
+    .description {
+      position: relative;
+      background-color: white;
+    }
+
+    .label {
+      float: left;
+    }
+
+    .description {
+      float: right;
+      display: none;
+
+      @include media($tablet-portrait) {
+        display: block;
+      }
+    }
+  }
+
+  .about {
+    margin-top: 150px;
+
+    .intro {
+      @include span-columns(8);
+      @include shift(2);
+      font-size: 1.2em;
+      line-height: 1.6em;
+    }
+
+    .title {
+      text-transform: none;
+      font-size: 2em;
+    }
+
+    .about {
+      @include span-columns(12);
+
+      @include media($tablet-portrait) {
+        @include span-columns(6);
+      }
+    }
+
+    .about-lieke {
+      margin-right: 0;
+
+      p,
+      .title {
+        text-align: right;
+      }
+    }
+
+    .profile-picture {
+      position: relative;
+      width: 100%;
+
+      &:before{
+        content: "";
+        display: block;
+        padding-top: 100%;  /* initial ratio of 1:1*/
+      }
+
+      img {
+        position:  absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .about-content {
+      line-height: 1.4em;
+      padding: 20px 30px;
+    }
+  }
+}

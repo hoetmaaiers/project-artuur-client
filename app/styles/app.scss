@@ -1,2 +1,93 @@
 @import "bourbon";
-@import "neat"
+@import "neat";
+
+/*
+ * Media Queries
+ */
+$mobile          : new-breakpoint(max-width 500px);
+$tablet-portrait : new-breakpoint(min-width 768px 12);
+$tablet          : new-breakpoint(min-width 1024px 12);
+
+
+/*
+ * Fonts
+ */
+
+// @import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
+
+@include font-face("nexa_bold", "fonts/nexa_bold/nexa-bold", bold);
+@include font-face("basic_title", "fonts/basic_title/basictitlefont-webfont", regular);
+@include font-face("kingthings_trypewriter_2Rg", "fonts/kingthings_trypewriter/kingthings_trypewriter_2-webfont", regular);
+
+$nexa-bold: 'nexa_bold', sans-serif;
+$lato: 'Lato', sans-serif;
+$basic-title: 'basic_title', serif;
+$kingthings-trypewriter: 'kingthings_trypewriter_2Rg', serif;
+
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  position: relative;
+  width: 100%;
+}
+
+body {
+  font-size: 14px;
+  font-family: $lato;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.section {
+  min-height: 100vh;
+}
+
+.title {
+  margin-top: 0;
+  font-family: $nexa-bold;
+  text-transform: uppercase;
+  font-size: 3em;
+}
+
+p {
+  font-family: $lato;
+  font-size: 1em;
+}
+
+ul {
+  padding: 0;
+  list-style-position: inside;
+}
+
+li {
+  position: relative;
+  list-style: none;
+  padding-left: 20px;
+
+  &:before {
+    content: '-';
+    position: absolute;
+    left: 0;
+    display: block;
+  }
+}
+
+a {
+  color: black;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+@import "header";
+@import "welcome";
+// @import "workshops";
+// @import "bar";
+// @import "expo";
+// @import "workspace";

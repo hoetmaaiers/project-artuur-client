@@ -1,0 +1,67 @@
+<section class="section bar-section">
+  <div class="bar-header-outer-wrapper">
+    <div class="bar-header-wrapper">
+      <header class="bar-header">
+        <h1 class="title">Bar</h1>
+        <p class="tagline">
+          Zoet? Schuimig?
+          <br>
+          Vooral gezelllig!
+        </p>
+
+      </header>
+      <img class="cover-image" src="./assets/images/bar/cover.jpg">
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="content">
+      <div class="opening-hours">
+        <ul class="opening-hours-list">
+
+          <li class="day closed {{is-today 'monday'}}">
+            <div class="label">maandag</div>
+            <div class="info">gesloten</div>
+          </li>
+
+          <li class="day closed {{is-today 'tuesday'}}">
+            <div class="label">dinsdag</div>
+            <div class="info">gesloten</div>
+          </li>
+
+          <li class="day {{is-today 'wednesday'}}">
+            <div class="label">woensdag</div>
+            <div class="info">10u tot 18u</div>
+          </li>
+
+          <li class="day {{is-today 'thursday'}}">
+            <div class="label">donderdag</div>
+            <div class="info">10u tot 2u</div>
+          </li>
+
+          <li class="day {{is-today 'friday'}}">
+            <div class="label">vrijdag</div>
+            <div class="info">10u tot 2u</div>
+          </li>
+
+          <li class="day {{is-today 'saturday'}}">
+            <div class="label">vrijdag</div>
+            <div class="info">10u tot 2u</div>
+          </li>
+
+          <li class="day {{is-today 'sunday'}}">
+            <div class="label">vrijdag</div>
+            <div class="info">12u tot 20u</div>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <img src="./assets/images/bar/menu-card-recto.png">
+      <img src="./assets/images/bar/menu-card-verso.png">
+    </div>
+  </div>
+
+</section>

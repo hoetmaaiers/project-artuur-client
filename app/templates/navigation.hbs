@@ -1,0 +1,21 @@
+<nav {{bind-attr class='menuVisible:active :main-navigation'}}>
+  <button class='btn-close' {{action 'toggleMenu'}}>
+    <img src="./assets/images/icons/cross.svg" alt="" class="js-svg-inject icon">
+  </button>
+
+      {{#link-to 'welcome' classNames="link"}}home{{/link-to}}
+      {{#link-to 'bar' classNames="link"}}bar{{/link-to}}
+      {{#link-to 'workshops' classNames="link"}}workshops{{/link-to}}
+      {{#link-to 'workspace' classNames="link"}}workspace{{/link-to}}
+      {{#link-to 'expo' classNames="link"}}expo{{/link-to}}
+
+  <div class='social'>
+    <a class="link-social" href="https://www.facebook.com/ProjectArtuur">
+      <img src="./assets/images/icons/facebook.svg" class='js-svg-inject' alt="">
+    </a>
+
+    <a class="link-social" href="http://instagram.com">
+      <img src="./assets/images/icons/instagram.svg" class='js-svg-inject' alt="">
+    </a>
+  </div>
+</nav>

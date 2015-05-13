@@ -12,7 +12,7 @@
   top: 0;
   z-index: 100;
 
-  background-image: asset_url('nav-bg.svg');
+  background-image: url('../assets/images/nav-bg.svg');
   background-position: top right;
   background-repeat: no-repeat;
   background-size: contain;
@@ -122,7 +122,7 @@
     margin-bottom: 10px;
 
     svg {
-      fill: tomato;
+      fill: #5A5B5D;
     }
   }
 }

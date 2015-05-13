@@ -2,10 +2,10 @@ import Ember from 'ember';
 
 export function isToday(params) {
   var weekday = params[0];
+  var days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
-  var days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
   if (days.indexOf(weekday) === new Date().getDay()) {
-    return 'today'
+    return 'today';
   } else {
     return null;
   }

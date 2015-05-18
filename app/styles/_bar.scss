@@ -77,6 +77,12 @@
   float: none;
   @include clearfix();
 
+  li {
+    &:before {
+      content: '';
+    }
+  }
+
   .week-days,
   .weekend-days {
     width: 100%;

@@ -5,6 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'project-artuur-client',
     environment: environment,
     baseURL: '/',
+    host: 'http://localhost:3000',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -21,13 +22,13 @@ module.exports = function(environment) {
 
 
   ENV.contentSecurityPolicy = {
-    // 'default-src': "'self' " + ENV.host,
+    'default-src': "'self' " + ENV.host,
     'font-src': "'self' data: http://fonts.gstatic.com",
-    // 'connect-src': "'self' " + ENV.host, // Allow data (ajax/websocket) from host
-    // 'img-src': "'self' http://placehold.it/ " + ENV.host,
+    'connect-src': "'self' " + ENV.host, // Allow data (ajax/websocket) from host
+    'img-src': "'self' http://placehold.it/ " + ENV.host,
     'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com http://cloud.typography.com/ ", // Allow inline styles and loaded CSS from http://fonts.googleapis.com
-    // 'media-src': "'self' "  + ENV.host,
-    // 'script-src': "'self' 'unsafe-inline'"
+    'media-src': "'self' "  + ENV.host,
+    'script-src': "'self' 'unsafe-inline'"
   }
 
   if (environment === 'development') {

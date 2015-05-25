@@ -25,29 +25,39 @@
 
       <div class="tag-filters filter-group">
         <div class="subtitle">Soort workshop</div>
-        {{!-- - @tags.each do |tag|
-          %button.filter-item{data: {filter: "tag-#{tag.id}"}}= tag.name --}}
+        {{#each tag in tags}}
+          <button class="filter-item">{{tag.name}}</button>
+        {{/each}}
       </div>
+
       <div class="audience-filters filter-group">
         <div class="subtitle">Doelgroep</div>
-        {{!-- - @audiences.each do |audience|
-          %button.filter-item{data: {filter: "audience-#{audience.id}"}}= audience.name.dasherize --}}
+        {{#each audience in audiences}}
+          <button class="filter-item">{{audience.name}}</button>
+        {{/each}}
       </div>
+
     </div>
 
-
-
-
     <div class="workshops-list">
-      {{!-- - @workshops.each do |workshop|
-        = link_to workshop_url(workshop.id), {class: workshop_class(workshop)} do
-          = image_tag workshop.cover_image.url(:medium), class: 'cover-image'
-          %h3.title= workshop.title
-          .tags
-            .tags-wrapper
-              - tags = workshop.tags + workshop.audiences
-              - tags.each do |tag|
-                .tag-item= tag.name.upcase --}}
+      {{#each workshop in model}}
+        {{#link-to 'workshop' workshop classNames='workshop-item'}}
+          <img src="{{workshop.coverImage}}" class="cover-image" alt="afbeelding voor {{workshop.title}}">
+          <h3 class="title">{{workshop.title}}</h3>
+          <div class="tags">
+
+            <div class="tags-wrapper">
+              {{#each tag in workshop.tags}}
+                <div class="tag-item">{{tag.name}}</div>
+              {{/each}}
+
+              {{#each audience in workshop.audiences}}
+                <div class="tag-item">{{audience.name}}</div>
+              {{/each}}
+            </div>
+          </div>
+        {{/link-to}}
+      {{/each}}
     </div>
 
   </div>

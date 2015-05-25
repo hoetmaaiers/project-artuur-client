@@ -8,6 +8,8 @@ var Router = Ember.Router.extend({
 export default Router.map(function() {
   this.route('welcome', { path: '/' });
   this.resource('workshops');
+  this.resource('workshop', { path: '/workshops/:workshop_id' });
+
   this.route('bar');
   this.route('expo');
   this.route('workspace');

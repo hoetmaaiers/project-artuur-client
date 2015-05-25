@@ -106,6 +106,7 @@
   .workshop-item {
     position: relative;
     display: block;
+    float: left;
     text-decoration: none;
     @include calc(width, "100vw/3");
     @include calc(height, "100vw/3");

@@ -1,30 +1,41 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  filteredWorkshops: Em.computed.oneWay('model'),
-  // ('model.@each', function(){
-  //   Em.Logger.debug('filteredWorkshops', this.get('model'));
-  //   return this.get('model');
-  // }),
+  init: function() {
+    this.get('checkedTypes');
+    this.get('checkedTags');
+    this.get('checkedAudiences');
+  },
 
-  checkedTags: Em.computed.filterBy('tags', 'checked', true),
-  checkedAudiences: Em.computed.filterBy('audiences', 'checked', true),
+  filteredWorkshops: Em.computed.oneWay('model'),
+
+  checkedTags      : Em.computed.filterBy('tags', 'checked', true),
+  checkedAudiences : Em.computed.filterBy('audiences', 'checked', true),
+  checkedTypes     : Em.computed.filterBy('types', 'checked', true),
 
   actions: {
     toggleFilter: function(tag) {
       tag.toggleProperty('checked');
+    },
+
+    chooseType: function(type) {
+      this.get('types').setEach('checked', false);
+      type.set('checked', true);
     }
   },
 
-  observeFilters: Em.observer('checkedTags.@each', 'checkedAudiences.@each', function() {
-    Em.Logger.debug('checkedTags', this.get('checkedTags.length'))
-    Em.Logger.debug('checkedAudiences', this.get('checkedAudiences.length'))
-
+  observeFilters: Em.observer('model.@each', 'checkedTypes.@each', 'checkedTags.@each', 'checkedAudiences.@each', function() {
     this.filterWorkshops()
   }),
 
   filterWorkshops: function() {
     let workshops = this.get('model');
+    if (Em.isEmpty(workshops)) { return false }
+
+    // filter with types
+    if (Em.isPresent(this.get('checkedTypes'))) {
+      workshops = this.filterWorkshopsWithType(workshops, this.get('checkedTypes.firstObject.type'));
+    }
 
     // filter with tags
     if (Em.isPresent(this.get('checkedTags'))) {
@@ -38,6 +49,14 @@ export default Ember.Controller.extend({
 
     this.set('filteredWorkshops', workshops);
 
+  },
+
+  filterWorkshopsWithType: function(workshops, type) {
+    if (type === 'all') {
+      return workshops;
+    } else {
+      return workshops.filterBy('type', type);
+    }
   },
 
   filterWorkshopsWithFilter: function(workshops, tags, filterType) {

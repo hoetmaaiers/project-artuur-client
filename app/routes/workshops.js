@@ -9,10 +9,16 @@ export default Ember.Route.extend({
     this._super(controller, model);
 
     var tags = this.getRelation(model, 'tags');
+    controller.set('tags', tags);
 
     var audiences = this.getRelation(model, 'audiences');
-    controller.set('tags', tags);
     controller.set('audiences', audiences);
+
+    controller.set('types', Em.A([
+      Em.Object.create({type: "all", title: "Allemaal", checked: true}),
+      Em.Object.create({type: "in_house", title: "In huis"}),
+      Em.Object.create({type: "on_request", title: "Op aanvraag"})
+    ]));
   },
 
   getRelation: function (workshops, relationKey) {

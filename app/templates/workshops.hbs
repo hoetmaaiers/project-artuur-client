@@ -18,20 +18,20 @@
       </div>
 
       <div class="type-filters">
-        <button class="type-filter">Allemaal</button>
-        <button class="type-filter">In huis</button>
-        <button class="type-filter">Op aanvraag</button>
+        {{#each type in types}}
+          <button {{bind-attr class="type.checked:active :type-filter"}} {{action 'chooseType' type}}>{{type.title}}</button>
+        {{/each}}
       </div>
 
       <div class="tag-filters filter-group">
-        <div class="subtitle">Soort workshop ({{checkedTags.length}})</div>
+        <div class="subtitle">Soort workshop</div>
         {{#each tag in tags}}
           {{workshop-filter filter=tag toggle='toggleFilter'}}
         {{/each}}
       </div>
 
       <div class="audience-filters filter-group">
-        <div class="subtitle">Doelgroep ({{checkedAudiences.length}})</div>
+        <div class="subtitle">Doelgroep</div>
         {{#each audience in audiences}}
           {{workshop-filter filter=audience toggle='toggleFilter'}}
         {{/each}}

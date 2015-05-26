@@ -9,6 +9,7 @@ export default Ember.Route.extend({
     this._super(controller, model);
 
     var tags = this.getRelation(model, 'tags');
+
     var audiences = this.getRelation(model, 'audiences');
     controller.set('tags', tags);
     controller.set('audiences', audiences);

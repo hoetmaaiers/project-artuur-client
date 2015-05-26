@@ -18,29 +18,29 @@
       </div>
 
       <div class="type-filters">
-        <button class="type-filter" data-filter="type-all">Allemaal</button>
-        <button class="type-filter" data-filter="type-in-house">In huis</button>
-        <button class="type-filter" data-filter="type-on-request">Op aanvraag</button>
+        <button class="type-filter">Allemaal</button>
+        <button class="type-filter">In huis</button>
+        <button class="type-filter">Op aanvraag</button>
       </div>
 
       <div class="tag-filters filter-group">
-        <div class="subtitle">Soort workshop</div>
+        <div class="subtitle">Soort workshop ({{checkedTags.length}})</div>
         {{#each tag in tags}}
-          <button class="filter-item">{{tag.name}}</button>
+          {{workshop-filter filter=tag toggle='toggleFilter'}}
         {{/each}}
       </div>
 
       <div class="audience-filters filter-group">
-        <div class="subtitle">Doelgroep</div>
+        <div class="subtitle">Doelgroep ({{checkedAudiences.length}})</div>
         {{#each audience in audiences}}
-          <button class="filter-item">{{audience.name}}</button>
+          {{workshop-filter filter=audience toggle='toggleFilter'}}
         {{/each}}
       </div>
 
     </div>
 
     <div class="workshops-list">
-      {{#each workshop in model}}
+      {{#each workshop in filteredWorkshops}}
         {{#link-to 'workshop' workshop classNames='workshop-item'}}
           <img src="{{workshop.coverImage}}" class="cover-image" alt="afbeelding voor {{workshop.title}}">
           <h3 class="title">{{workshop.title}}</h3>
